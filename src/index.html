@@ -1,34 +1,57 @@
-<!DOCTYPE html>
-<!--
-Copyright (C) 2017 Red Hat, Inc.
-
-Cockpit is free software; you can redistribute it and/or modify it
-under the terms of the GNU Lesser General Public License as published by
-the Free Software Foundation; either version 2.1 of the License, or
-(at your option) any later version.
-
-Cockpit is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-Lesser General Public License for more details.
-
-You should have received a copy of the GNU Lesser General Public License
-along with this package; If not, see <http://www.gnu.org/licenses/>.
--->
-<html lang="en">
 <head>
-    <title translate>Cockpit Starter Kit</title>
+    <title>Azure MQTT Bridge</title>
     <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="stylesheet" href="index.css">
-
-    <script type="text/javascript" src="index.js"></script>
-    <script type="text/javascript" src="po.js"></script>
+    <link href="apps.css" type="text/css" rel="stylesheet">
+    <script src="../base1/cockpit.js"></script>
 </head>
 
-<body>
-    <div id="app"></div>
+<body class="pf-m-redhat-font">
+    <div class="ct-page-fill">
+        <div class="pf-c-page">
+            <main class="pf-c-page__main" tabindex="-1">
+                <section class="pf-c-page__main-section pf-m-light">
+                    <h2>Environment variables for custom application</h2>
+                    <p>This page can be used to configure modify variables Environment on custom applications.</p>
+                </section>
+
+                <section class="pf-c-page__main-section">
+                    <div class="pf-l-gallery pf-m-gutter">
+                        <article id="adu-provision" class="pf-c-card">
+                            <div class="pf-c-card__header">
+                                <div class="pf-l-flex pf-m-align-items-center">
+                                    <div class="pf-c-card__title">
+                                        <h2>Current variables</h2>
+                                    </div>
+                                    <p id="provision-result" class="pf-m-info"></p>
+                                </div>
+                            </div>
+                            <div class="pf-c-card__body">
+                                <div class="pf-l-stack__item">
+                                    <input id="log-level-variable" size="55" placeholder="">
+                                    <input id="log-level-variable" size="55" placeholder="">
+                                </div>
+                                <br>
+                                <div class="pf-l-stack__item">
+                                    <button class="pf-c-button pf-m-primary" id="provision-button">Check</button>
+                                    <button class="pf-c-button pf-m-secondary" id="provision-clear-button">Submit</button>
+                                </div>
+                                <br>
+                                <div class="pf-l-stack__item pf-m-fill">
+                                    <pre style="font-size: medium" id="provision-output"></pre>
+                                </div>
+                            </div>
+                        </article>
+                        <br>
+                        
+                  
+                        
+
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script src="config.js"></script>
 </body>
+
 </html>

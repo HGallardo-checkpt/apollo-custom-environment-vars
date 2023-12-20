@@ -1,30 +1,28 @@
-/*
- * This file is part of Cockpit.
- *
- * Copyright (C) 2017 Red Hat, Inc.
- *
- * Cockpit is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation; either version 2.1 of the License, or
- * (at your option) any later version.
- *
- * Cockpit is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with Cockpit; If not, see <http://www.gnu.org/licenses/>.
- */
+const logLevelVariable = document.getElementById("log-level-variable");
+const logLevelValue = document.getElementById("log-level-value");
 
-import "cockpit-dark-theme";
-import "patternfly/patternfly-5-cockpit.scss";
+function loadVariablesFile(){
+    cockpit.file("/tmp/environment/file-env-vars.txt").read()
+    .then((content, tag) => {
 
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Application } from './app.jsx';
-import './app.scss';
+        var row = content.split("\n");
+        var values = row.split("=")
+        logLevelVariable.value = values[0]
+        logLevelValue.value = values[1]
+        console.log(content)
+        console.log("**************")
+        console.log(tag)
+    })
+    .catch(error => {
+        console.log("xxxxxxxxxxxxxxxxx")
+        console.log(error)
+    });
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-    createRoot(document.getElementById("app")).render(<Application />);
-});
+function submit(){
+   
+    cockpit.script("echo " + logLevelVariable.value.toUpperCase() + "=" + logLevelValue.value + " >> /tmp/environment/file-env-vars.txt");
+
+}
+check_button.addEventListener("click", loadVariablesFile);
+submit_button.addEventListener("click", submit);

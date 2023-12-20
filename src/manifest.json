@@ -1,11 +1,11 @@
 {
-    "requires": {
-        "cockpit": "137"
-    },
-
+    "version": 0,
     "tools": {
         "index": {
-            "label": "Enviroment variables"
+            "label": "Enviroment variables",
+            "path": "index.html"
         }
-    }
+    },
+    "content-security-policy": "default-src 'self' 'unsafe-inline' 'unsafe-eval'"
+
 }
