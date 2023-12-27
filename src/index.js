@@ -1,17 +1,21 @@
-const logLevelVariable = document.getElementById("log-level-variable");
-const logLevelValue = document.getElementById("log-level-value");
+const nameVariable = document.getElementById("name-variable");
+const valueVariable = document.getElementById("value-variable");
 const submitButton = document.getElementById( "submit-button" );
-const checkButton = document.getElementById( "clear-button");
+const checkButton = document.getElementById( "check-button");
+
 function loadVariablesFile(){
     cockpit.file("/tmp/environment/file-env-vars.txt").read()
     .then((content, tag) => {
 
         var row = content.split("\n");
-        var values = row.split("=")
-        logLevelVariable.value = values[0]
-        logLevelValue.value = values[1]
-        console.log(content)
+        console.log(row)
         console.log("**************")
+        var values = row.split("=")
+        nameVariable.innerHTML = values[0]
+        valueVariable.innerHTML = values[1]
+       
+        console.log(content)
+       
         console.log(tag)
     })
     .catch(error => {
@@ -22,7 +26,7 @@ function loadVariablesFile(){
 
 function submit(){
    
-    cockpit.script("echo " + logLevelVariable.value.toUpperCase() + "=" + logLevelValue.value + " >> /tmp/environment/file-env-vars.txt");
+    cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value + " >> /tmp/environment/file-env-vars.txt");
 
 }
 checkButton.addEventListener("click", loadVariablesFile);
