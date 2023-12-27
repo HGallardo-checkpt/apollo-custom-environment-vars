@@ -7,16 +7,17 @@ function loadVariablesFile(){
     cockpit.file("/tmp/environment/file-env-vars.txt").read()
     .then((content, tag) => {
 
-        var row = content.split("\n");
-        console.log(row)
-        console.log("**************")
-        var values = row.split("=")
-        nameVariable.innerHTML = values[0]
-        valueVariable.innerHTML = values[1]
+        var data = content.split("\n");
+        data.array.forEach(element => {
+            console.log(element)
+            console.log("**************") 
+            nameVariable.innerHTML = "zzzzzz"
+            valueVariable.innerHTML = "xxxxxxxx"
+        });
+ 
        
-        console.log(content)
        
-        console.log(tag)
+       
     })
     .catch(error => {
         console.log("xxxxxxxxxxxxxxxxx")
