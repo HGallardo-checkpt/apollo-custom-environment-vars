@@ -9,11 +9,15 @@ function loadVariablesFile(){
 
         var data = content.split("\n");
         data.forEach(element => {
+           if(element){
             console.log(element)
             console.log("**************")
             values =  element.split("=")
             nameVariable.value = values[0]
             valueVariable.value = values[1]
+
+           }
+            
         });
  
        
