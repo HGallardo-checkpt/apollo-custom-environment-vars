@@ -10,9 +10,10 @@ function loadVariablesFile(){
         var data = content.split("\n");
         data.forEach(element => {
             console.log(element)
-            console.log("**************") 
-            nameVariable.innerHTML = "zzzzzz"
-            valueVariable.innerHTML = "xxxxxxxx"
+            console.log("**************")
+            values =  element.split("=")
+            nameVariable.value = values[0]
+            valueVariable.value = values[1]
         });
  
        
