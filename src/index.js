@@ -8,7 +8,7 @@ function loadVariablesFile(){
     .then((content, tag) => {
 
         var data = content.split("\n");
-        data.array.forEach(element => {
+        data.forEach(element => {
             console.log(element)
             console.log("**************") 
             nameVariable.innerHTML = "zzzzzz"
