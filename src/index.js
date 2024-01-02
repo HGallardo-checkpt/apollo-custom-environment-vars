@@ -1,6 +1,6 @@
 const nameVariable = document.getElementById("name-variable");
 const valueVariable = document.getElementById("value-variable");
-const modifyButton = document.getElementById( "submit-button" );
+const submitButton = document.getElementById( "submit-button" );
 const checkButton = document.getElementById( "check-button");
 const addButton = document.getElementById( "add-button");
 const container = document.getElementById("container");
@@ -15,10 +15,9 @@ function loadVariablesFile(){
             values =  element.split("=")
             nameVariable.value = values[0]
             valueVariable.value = values[1].replace("'","")
-            var inputName = document.createElement("input");
+            var inputName = document.createElement("div");
             var inputValue = document.createElement("input");
-            inputName.type = "text";
-            inputName.name = nameVariable;
+            inputName.innerHTML = nameVariable;
             inputName.size = 55
             inputValue.type = "text";
             inputValue.name = nameVariable;
