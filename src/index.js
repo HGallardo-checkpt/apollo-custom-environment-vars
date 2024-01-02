@@ -9,6 +9,7 @@ const container = document.getElementById("container");
 const counterVars = document.getElementById("counter");
 
 counterVars.style.visibility = 'hidden'
+const date = new Date();
 
 function loadVariablesFile(){
     cockpit.file("/tmp/environment/file-env-vars.txt").read()
@@ -20,11 +21,13 @@ function loadVariablesFile(){
            if(element){
             values =  element.split("=")
             var inputName = document.createElement("input");
+            inputName.id = n + "-var" ;
             inputName.name = n + "-var" ;
             inputName.type = "text";
             inputName.size = 55
             inputName.value = values[0]
             var inputValue = document.createElement("input");
+            inputValue.id = n + "-value";
             inputValue.name = n + "-value";
             inputValue.type = "text";
             inputValue.size = 55
@@ -47,8 +50,18 @@ function loadVariablesFile(){
 
 function submit(){
    
-    //cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
+    backupChanges()
+    var x =  counterVars.getAttribute('value')
+    for(i = 0; i <= x; i++){
+        
+        var variable = document.getElementById(i + "-var");
+        var value = document.getElementById(i + "-val");
+        cockpit.script("echo " + variable.toUpperCase() + "=" + value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
+
+
+    }
     loadVariablesFile()
+
 }
 
 function addVariable(){
@@ -58,9 +71,13 @@ function addVariable(){
     cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
     loadVariablesFile()
 }
- 
+
+function backupChanges(){
+    var timestamp = date.getTime()
+    cockpit.script( "mv /tmp/environment/file-env-vars.txt >> /tmp/environment/file-env-vars"+ timestamp +".txt ");
+
+}
 
 checkButton.addEventListener("click", loadVariablesFile);
 submitButton.addEventListener("click", submit);
-
 addButton.addEventListener("click", addVariable);
