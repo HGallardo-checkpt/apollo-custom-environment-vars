@@ -3,6 +3,7 @@ const valueVariable = document.getElementById("value-variable");
 
 const submitButton = document.getElementById( "submit-button" );
 const checkButton = document.getElementById( "check-button");
+
 const addButton = document.getElementById( "add-button");
 const container = document.getElementById("container");
 const counterVars = document.getElementById("counter");
@@ -46,7 +47,7 @@ function loadVariablesFile(){
 
 function submit(){
    
-    cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
+    //cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
     loadVariablesFile()
 }
 
@@ -59,4 +60,5 @@ function addVariable(){
 
 checkButton.addEventListener("click", loadVariablesFile);
 submitButton.addEventListener("click", submit);
+
 addButton.addEventListener("click", addVariable);
