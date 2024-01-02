@@ -18,10 +18,10 @@ function loadVariablesFile(){
            // valueVariable.value = values[1].replace("'","")
 
             var inputName = document.createElement("input");
-            inputName.name =  values[0];
+            inputName.name = n + "-var" ;
             inputName.type = "text";
             inputName.size = 55
-
+            inputName.value = values[0]
             var inputValue = document.createElement("input");
             inputValue.name = n + "-value";
             inputValue.type = "text";
