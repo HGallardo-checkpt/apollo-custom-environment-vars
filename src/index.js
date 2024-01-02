@@ -52,7 +52,7 @@ function submit(){
 }
 
 function addVariable(){
-   
+    container.innerHTML = ""
     cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
     loadVariablesFile()
 }
