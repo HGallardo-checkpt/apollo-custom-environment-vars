@@ -14,15 +14,19 @@ function loadVariablesFile(){
         data.forEach(element => {
            if(element){
             values =  element.split("=")
-            nameVariable.value = values[0]+"-"+n
-            valueVariable.value = values[1].replace("'","")
-            var inputName = document.createElement("div");
-            var inputValue = document.createElement("input");
-            inputName.innerHTML = nameVariable;
+           // nameVariable.value = values[0]
+           // valueVariable.value = values[1].replace("'","")
+
+            var inputName = document.createElement("input");
+            inputName.name =  values[0];
+            inputName.type = "text";
             inputName.size = 55
+
+            var inputValue = document.createElement("input");
+            inputValue.name = n + "-value";
             inputValue.type = "text";
-            inputValue.name = nameVariable;
             inputValue.size = 55
+            inputValue.value = values[1].replace("'","")
 
             container.appendChild(inputName);
             container.appendChild(inputValue);
