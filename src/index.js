@@ -8,12 +8,13 @@ const container = document.getElementById("container");
 function loadVariablesFile(){
     cockpit.file("/tmp/environment/file-env-vars.txt").read()
     .then((content, tag) => {
+        var n = 0
 
         var data = content.split("\n");
         data.forEach(element => {
            if(element){
             values =  element.split("=")
-            nameVariable.value = values[0]
+            nameVariable.value = values[0]+"-"+n
             valueVariable.value = values[1].replace("'","")
             var inputName = document.createElement("div");
             var inputValue = document.createElement("input");
