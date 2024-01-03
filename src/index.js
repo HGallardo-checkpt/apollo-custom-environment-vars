@@ -52,18 +52,13 @@ function loadVariablesFile(){
 function submit(){
    
     backupChanges()
-    var x =  counterVars;
-    console.log("******* total ******")
-    console.log(x)
-    console.log("*******************")
+    var x =  counterVars; 
 
-    for(i = 0; i <= x; i++){
+    for(i = 0; i <= x-1; i++){
         
         var variable = document.getElementById(i + "-var");
         var value = document.getElementById(i + "-value");
-        console.log("******* total ******")
-        console.log(variable.value.toUpperCase())
-        console.log("*******************")
+        
 
         cockpit.script("echo " + variable.value.toUpperCase() + "=" + value.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
 
