@@ -6,7 +6,7 @@ const checkButton = document.getElementById( "check-button");
 
 const addButton = document.getElementById( "add-button");
 const container = document.getElementById("container");
-const counterVars = 0;
+var counterVars = 0;
 
 const date = new Date();
 
