@@ -35,7 +35,9 @@ function loadVariablesFile(){
 
             container.appendChild(inputName);
             container.appendChild(inputValue);
+            n++
            }
+           counterVars.value = n
             
         });
  
