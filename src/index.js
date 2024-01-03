@@ -51,7 +51,7 @@ function loadVariablesFile(){
 function submit(){
    
     backupChanges()
-    var x =  counterVars.getAttribute('value')
+    var x =  counterVars.getAttribute('value');
     for(i = 0; i <= x; i++){
         
         var variable = document.getElementById(i + "-var");
@@ -60,14 +60,13 @@ function submit(){
 
 
     }
-    loadVariablesFile()
+    clean()
+    loadVariablesFile();
 
 }
 
 function addVariable(){
-    nameVariable.value = ""
-    valueVariable.value = ""
-    container.innerHTML = ""
+    clean();
     cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
     loadVariablesFile()
 }
@@ -85,6 +84,11 @@ function backupChanges(){
         console.error(`get os list returned error: "${JSON.stringify(exception)}", data: "${JSON.stringify(data)}"`);
     });
 
+}
+function clean(){
+    nameVariable.value = "";
+    valueVariable.value = "";
+    container.innerHTML = "";
 }
 
 checkButton.addEventListener("click", loadVariablesFile);
