@@ -52,10 +52,18 @@ function submit(){
    
     backupChanges()
     var x =  counterVars.getAttribute('value');
+    console.log("******* total ******")
+    console.log(x)
+    console.log("*******************")
+
     for(i = 0; i <= x; i++){
         
         var variable = document.getElementById(i + "-var");
         var value = document.getElementById(i + "-value");
+        console.log("******* total ******")
+        console.log(variable.value.toUpperCase())
+        console.log("*******************")
+
         cockpit.script("echo " + variable.value.toUpperCase() + "=" + value.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
 
 
