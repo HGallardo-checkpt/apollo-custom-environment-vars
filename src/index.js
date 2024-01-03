@@ -8,7 +8,6 @@ const addButton = document.getElementById( "add-button");
 const container = document.getElementById("container");
 const counterVars = 0;
 
-counterVars.style.visibility = 'hidden'
 const date = new Date();
 
 function loadVariablesFile(){
