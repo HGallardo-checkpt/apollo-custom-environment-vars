@@ -74,7 +74,7 @@ function addVariable(){
 
 function backupChanges(){
     var timestamp = date.getTime()
-    cockpit.script( "mv /tmp/environment/file-env-vars.txt >> /tmp/environment/file-env-vars"+ timestamp +".txt ").then(result => {
+    cockpit.script( "mv /tmp/environment/file-env-vars.txt  /tmp/environment/file-env-vars"+ timestamp +".txt ").then(result => {
         console.log("****************")
         console.log(result)
         console.log("****************")
