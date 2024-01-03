@@ -59,12 +59,10 @@ function submit(){
         var variable = document.getElementById(i + "-var");
         var value = document.getElementById(i + "-value");
         
-
         cockpit.script("echo " + variable.value.toUpperCase() + "=" + value.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
 
-
     }
-    clean()
+    clean();
     loadVariablesFile();
 
 }
@@ -72,20 +70,20 @@ function submit(){
 function addVariable(){
     clean();
     cockpit.script("echo " + nameVariable.value.toUpperCase() + "=" + valueVariable.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
-    loadVariablesFile()
+    loadVariablesFile();
 }
 
 function backupChanges(){
     var timestamp = date.getTime()
-    cockpit.script( "mv /tmp/environment/file-env-vars.txt  /tmp/environment/file-env-vars"+ timestamp +".txt ").then(result => {
+    cockpit.script( "mv /tmp/environment/file-env-vars.txt  /tmp/environment/file-env-vars"+ timestamp +".txt ").done(function(data) {
         console.log("****************")
-        console.log(result)
+        console.log(data)
         console.log("****************")
 
    
     })
-    .fail((exception, data) => {
-        console.error(`get os list returned error: "${JSON.stringify(exception)}", data: "${JSON.stringify(data)}"`);
+    .fail((exception) => {
+        console.error(JSON.stringify(exception));
     });
 
 }
