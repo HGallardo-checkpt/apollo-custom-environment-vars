@@ -74,7 +74,16 @@ function addVariable(){
 
 function backupChanges(){
     var timestamp = date.getTime()
-    cockpit.script( "mv /tmp/environment/file-env-vars.txt >> /tmp/environment/file-env-vars"+ timestamp +".txt ");
+    cockpit.script( "mv /tmp/environment/file-env-vars.txt >> /tmp/environment/file-env-vars"+ timestamp +".txt ").then(result => {
+        console.log("****************")
+        console.log(result)
+        console.log("****************")
+
+   
+    })
+    .fail((exception, data) => {
+        console.error(`get os list returned error: "${JSON.stringify(exception)}", data: "${JSON.stringify(data)}"`);
+    });
 
 }
 
