@@ -6,7 +6,7 @@ const checkButton = document.getElementById( "check-button");
 
 const addButton = document.getElementById( "add-button");
 const container = document.getElementById("container");
-const counterVars = document.getElementById("counter");
+const counterVars = 0;
 
 counterVars.style.visibility = 'hidden'
 const date = new Date();
@@ -37,7 +37,7 @@ function loadVariablesFile(){
             container.appendChild(inputValue);
             n++
            }
-           counterVars.value = n
+           counterVars = n
             
         });
  
@@ -53,7 +53,7 @@ function loadVariablesFile(){
 function submit(){
    
     backupChanges()
-    var x =  counterVars.getAttribute('value');
+    var x =  counterVars;
     console.log("******* total ******")
     console.log(x)
     console.log("*******************")
