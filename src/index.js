@@ -56,7 +56,7 @@ function submit(){
         
         var variable = document.getElementById(i + "-var");
         var value = document.getElementById(i + "-val");
-        cockpit.script("echo " + variable.toUpperCase() + "=" + value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
+        cockpit.script("echo " + variable.value.toUpperCase() + "=" + value.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
 
 
     }
