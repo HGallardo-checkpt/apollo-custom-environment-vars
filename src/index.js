@@ -55,7 +55,7 @@ function submit(){
     for(i = 0; i <= x; i++){
         
         var variable = document.getElementById(i + "-var");
-        var value = document.getElementById(i + "-val");
+        var value = document.getElementById(i + "-value");
         cockpit.script("echo " + variable.value.toUpperCase() + "=" + value.value.toUpperCase() + " >> /tmp/environment/file-env-vars.txt");
 
 
